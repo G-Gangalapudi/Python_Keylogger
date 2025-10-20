@@ -1,104 +1,127 @@
-Python_Keylogger
+# Python Keylogger
 
-A simple keylogger written in Python, with the ability to record exactly what a user types.
+A simple Python-based keystroke logger, for educational / security-audit purposes.  
+Created by G-Gangalapudi — [GitHub Repository](https://github.com/G-Gangalapudi/Python_Keylogger)
 
-Table of Contents
+---
 
-Features
+## Table of Contents  
+- [Features](#features)  
+- [How It Works](#how-it-works)  
+- [Requirements](#requirements)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Configuration](#configuration)  
+- [Ethics & Legal Notice](#ethics--legal-notice)  
+- [License](#license)  
+- [Disclaimer](#disclaimer)  
 
-How it works
+---
 
-Usage
+## Features  
+- Captures all keystrokes typed (including letters, numbers, special keys) while the script is running  
+- Writes a raw log file (`keylog.txt`) showing each key event  
+- Includes a secondary helper script (`keylogcleaner.py`) that processes the raw log into a more readable format (`cleaned_output.txt`)  
+- Minimal external dependencies  
+- Simple, compact code structure — suitable for educational / proof-of-concept uses
 
-Installation
+---
 
-Cleaning the log
+## How It Works  
+1. The main script (`keylogger.py`) sets up a keyboard hook/listener to intercept each keystroke  
+2. Each keystroke is logged to a file — including timing and key name/modifier  
+3. The log accumulates until the program is terminated  
+4. Run the cleaning tool (`keylogcleaner.py`) which reads `keylog.txt`, formats entries, and writes `cleaned_output.txt`  
+5. Open `cleaned_output.txt` to inspect what was typed
 
-Important Notes & Ethics
+---
 
-Licence
+## Requirements  
+- Python 3.x (tested with Python 3.*)  
+- (Optional) If using a third-party library for keyboard hooks (e.g., `pynput`, `keyboard`), install accordingly  
+- Elevated/admin privileges may be required depending on OS/hook method  
+- Run on a machine that you own or are authorised to monitor
 
-Features
+---
 
-Captures keystrokes in real-time and records them to keylog.txt.
+## Installation  
+```bash
+git clone https://github.com/G-Gangalapudi/Python_Keylogger.git
+cd Python_Keylogger
+# (Optional) create virtual env
+python3 -m venv venv
+source venv/bin/activate    # On Windows use: venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-Provides a script to clean and parse the raw log (keylogcleaner.py), to make it easier to read.
+---
 
-Simple, minimal dependencies (pure Python) for broad compatibility.
+## Usage
+1. Capture keystrokes
+```bash
+python keylogger.py
+```
 
-Useful for educational purposes: understanding how keylogging works, how to detect it, or for controlled environments.
+ Let the script run for the session you wish to capture. When done, stop it (e.g., Ctrl+C) and the log will be saved as keylog.txt.
 
-How It Works
+2. Clean the log
+```bash
+python keylogcleaner.py
+```
 
-The main script (keylogger.py) hooks into keyboard events (depending on OS and Python library used) and writes characters (including special keys) into a text log (keylog.txt).
+This reads keylog.txt and writes a cleaned, human-readable version as cleaned_output.txt.
 
-The cleaner script (keylogcleaner.py) reads keylog.txt, filters or formats the data, and outputs a cleaned version (cleaned_output.txt) that shows the typed text in a more human-readable way.
+3. View cleaned output
 
-Typical workflow: run keylogger.py, have it capture keystrokes during a session, then use the cleaner to interpret the log.
+Open cleaned_output.txt in a text editor to inspect what was typed during the session.
 
-Installation
+---
 
-Make sure you have Python installed (e.g., Python 3.x).
+## Configuration
+You can adjust settings in the scripts, such as:
+- Output file paths (raw log, cleaned log)
+- Whether to include timestamps or session markers
+- Which key-events to ignore (e.g., only record letters/numbers, skip modifiers)
+- OS-specific behaviours (Windows vs. Linux vs. macOS)
 
-Clone or download this repository:
+---
 
-git clone https://github.com/G-Gangalapudi/Python_Keylogger.git  
-cd Python_Keylogger  
+## Ethics & Legal Notice
 
+⚠️ Important: Use only in legal, authorised contexts.
+- Using keyloggers without the informed consent of the person being monitored is a serious invasion of privacy and potentially illegal.
+- In many jurisdictions (under GDPR, CCPA, etc.), capturing keystrokes secretly may violate laws.
+- If you’re using this tool in a workplace, parental-control, or investigatory setting, ensure you have:
+  - Explicit, informed consent from the monitored user
+  - Clear disclosure of what is being recorded and why
+  - Secure storage and limited access to logged data
+  - A lawful purpose (e.g., security auditing, training, research)
+- Never use this tool on a system you do not own or manage, or without full authorization.
+- Use of this project for malicious purposes (covert spying, identity theft, etc.) is strictly prohibited.
 
-Install any required dependencies (if any). For example:
+---
 
-pip install <dependency-if-used>  
+## License
 
+**Educational Use Only License (EUOL) © 2025 G-Gangalapudi**
 
-(Note: If the project uses only standard library modules, there may be no extra dependencies.)
+This repository and its code are provided for **education, research, and study only**. You may view and inspect the source code, but you may **not**:
 
-Usage
+- Execute, run, deploy, or use the code on systems or networks for operational purposes.
+- Redistribute, publish, sublicense, or share the code or any derivative works.
+- Use the code to monitor, record, or otherwise collect data from persons or systems without explicit legal authorization.
 
-Run the keylogger:
+If you would like permission for a use not covered here (e.g., controlled security testing, audit engagements), please contact the repository owner on GitHub to request written permission.
 
-python keylogger.py  
+---
 
+## Disclaimer
 
-Let it capture keystrokes for the desired period.
+This software is provided “as-is”, without warranty of any kind.
+The author(s) are not responsible for any misuse, data loss, legal liability, or damage arising from its use. By using this software you accept full responsibility and declare that you are authorised to monitor the device in question.
 
-Once done, stop the script (Ctrl+C or close window) and examine keylog.txt.
+---
 
-To clean the output:
+Thank you for exploring Python_Keylogger!
 
-python keylogcleaner.py  
-
-
-This will produce cleaned_output.txt, which is easier to review.
-
-Cleaning the Log
-
-The keylogcleaner.py script is useful to:
-
-Remove redundant or non-printable keystrokes (like modifier keys)
-
-Format or annotate output so that it’s clear what actual characters the user typed
-
-Produce a cleaner human-readable transcript of the session
-
-Important Notes & Ethics
-
-⚠️ Important: This tool can be misused.
-
-Make sure you are explicitly authorized to record keystrokes on any machine or by any user.
-
-Using this software on systems without consent may be illegal or violate privacy laws/regulations in your jurisdiction.
-
-This repository is provided for educational, research, security auditing or authorized usage only.
-
-Do not deploy it on systems you do not own or manage, or as part of malicious attacks.
-
-Use this knowledge to harden systems, detect keyloggers, or perform security awareness activities.
-
-Licence
-
-[Specify the licence you want to use — e.g., MIT Licence, GPL-v3, etc.]
-If you don’t yet have a licence file, consider adding a LICENSE file with appropriate terms.
-
-Disclaimer:
-This software is provided “as is”, without warranty of any kind. The author is not responsible for any misuse or damage resulting from its use.
+If you found this project useful for legitimate security awareness or testing, please feel free to open issues or send feedback via GitHub.
