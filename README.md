@@ -1,3 +1,17 @@
+> ⚠️ **Ethical Disclaimer**
+
+This project was created **purely for educational and cybersecurity learning purposes**.  
+The intent behind this repository is to understand how keylogging and input monitoring mechanisms work so that I — and others studying cybersecurity — can **recognize, defend against, and mitigate such threats** in real-world environments.
+
+❌ **This code must NOT be executed, deployed, or used on any system without the explicit consent of the system owner.**  
+✅ Use this project only in **isolated, controlled, and authorized** lab environments for ethical research, auditing, or defense learning.
+
+By accessing this repository, you acknowledge that:
+- You understand it is provided **for learning and awareness only**.
+- The author is **not responsible** for any misuse or damages resulting from unauthorized or unethical use.
+
+---
+
 # Python Keylogger
 
 A simple Python-based keystroke logger, for educational / security-audit purposes.  
@@ -126,4 +140,5 @@ The author(s) are not responsible for any misuse, data loss, legal liability, or
 Thank you for exploring Python_Keylogger!
 
 If you found this project useful for legitimate security awareness or testing, please feel free to open issues or send feedback via GitHub.
+
 
