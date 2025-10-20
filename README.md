@@ -51,7 +51,8 @@ cd Python_Keylogger
 # (Optional) create virtual env
 python3 -m venv venv
 source venv/bin/activate    # On Windows use: venv\Scripts\activate
-pip install -r requirements.txt
+# install pynput
+py -m pip install pynput
 ```
 
 ---
@@ -125,3 +126,4 @@ The author(s) are not responsible for any misuse, data loss, legal liability, or
 Thank you for exploring Python_Keylogger!
 
 If you found this project useful for legitimate security awareness or testing, please feel free to open issues or send feedback via GitHub.
+
